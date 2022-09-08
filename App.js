@@ -1,17 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
 
+  const [userName, setUserName] = React.useState("");
+  const [passWord, setPassWord] = React.useState("");
+
   function callFunctionJs() {
-    console.log('Dang nhap thanh cong');
+
+    if(userName == "abc123" && passWord == "123456"){
+      console.log('Dang nhap thanh cong');
+    }
+    else{
+      console.log('Dang nhap khong thanh cong');
+    }
+
   }
 
   return (
     <View style={styles.container}>
       <Text>Login</Text>
-      <TextInput placeholder='User name' style={styles.txtip}></TextInput>
-      <TextInput placeholder='Password'style={styles.txtip} ></TextInput>
+      <TextInput placeholder='User name' style={styles.txtip} onChangeText={(e) => setUserName(e)}></TextInput>
+      <TextInput placeholder='Password'style={styles.txtip} onChangeText={(e) => setPassWord(e)}></TextInput>
       <Button title='Login' onPress={callFunctionJs}></Button>
     </View>
   );
@@ -25,7 +35,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   txtip: {
-    borderColor: '#ffffff',
-    borderWidth: 3
+    borderColor: '#000000',
+    borderWidth: 3,
+    height: 40,
+    margin: 12,
+    padding: 10, 
+    width: 300,
   }
 });
