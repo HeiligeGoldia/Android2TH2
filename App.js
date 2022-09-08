@@ -1,11 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
+
+  function callFunctionJs() {
+    console.log('Dang nhap thanh cong');
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text>Login</Text>
+      <TextInput placeholder='User name' style={styles.txtip}></TextInput>
+      <TextInput placeholder='Password'style={styles.txtip} ></TextInput>
+      <Button title='Login' onPress={callFunctionJs}></Button>
     </View>
   );
 }
@@ -17,4 +24,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  txtip: {
+    borderColor: '#ffffff',
+    borderWidth: 3
+  }
 });
